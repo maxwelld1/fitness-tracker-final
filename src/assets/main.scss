@@ -1,0 +1,47 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import 'toastr/toastr.scss';
+
+#main {
+  margin-top: 75px;
+}
+
+$teal: #008080;
+$blue-grey: #bfccc6;
+$sickly-green: #14ea10;
+
+.navbar {
+  background-color: $teal;
+}
+
+.nav-link {
+  color: $blue-grey;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color:  darken( $blue-grey, 20% );
+}
+
+.nav-link.active,
+.nav-link.active:hover,
+.nav-link.active:focus {
+  color:  $sickly-green;
+}
+
+.fr-btn {
+  width:200px;
+}
+
+/*.navbar-nav > li > a {
+  color:  $blue-grey;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color:  darken( $blue-grey, 20% );
+}
+.navbar-nav > li > a.router-link-active,
+.navbar-nav > li > a.router-link-exact-active,
+.navbar-nav > li > a.active {
+  color: $sickly-green;
+}*/
