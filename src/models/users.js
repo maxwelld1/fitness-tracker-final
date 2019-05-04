@@ -1,7 +1,7 @@
 import { api, Globals } from './api';
 
 export async function GetFriends() {
-  const x = await api(`users/getfriends:${Globals.user.id}`);
+  const x = await api(`users/getfriends/${Globals.user.id}`);
   return x;
 }
 
@@ -30,12 +30,12 @@ export async function GetPendingRequests() {
   const x = await api(`relationships/getPending/${Globals.user.id}`);
   return x;
 }
-export async function ConfirmRequest(id) {
-  const x = await api(`relationships/confirm:${id}`);
+export async function ConfirmRequest(frID) {
+  const x = await api(`relationships/confirm/${frID}`);
   return x;
 }
-export async function DeleteRequest(id) {
-  const x = await api(`relationships/delete:${id}`);
+export async function DeleteRequest(frID) {
+  const x = await api(`relationships/delete/${frID}`);
   return x;
 }
 /* export async function oAuthLogin(token, fbid) {

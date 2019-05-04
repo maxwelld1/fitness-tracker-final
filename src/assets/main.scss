@@ -8,6 +8,8 @@
 $teal: #008080;
 $blue-grey: #bfccc6;
 $sickly-green: #14ea10;
+$green-accept: #42f44e;
+$red-deny: #cc2020;
 
 .navbar {
   background-color: $teal;
@@ -30,6 +32,26 @@ $sickly-green: #14ea10;
 
 .fr-btn {
   width:200px;
+}
+
+.btn-accept {
+  background-color: $green-accept;
+  width:200px;
+}
+
+.btn-accept:hover,
+.btn-accept:focus {
+  background-color: darken($green-accept, 20%);
+}
+
+.btn-deny {
+  background-color: $red-deny;
+  width:200px;
+}
+
+.btn-deny:hover,
+.btn-deny:focus {
+  background-color: darken($red-deny, 20%);
 }
 
 /*.navbar-nav > li > a {

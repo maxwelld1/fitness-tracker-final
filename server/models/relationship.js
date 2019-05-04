@@ -17,8 +17,8 @@ const model = {
         return { fr: 'sent' };
     },
     async getPending(id){
-        const data = await conn.query(`SELECT * FROM 2019Spring_Relationships
-                        WHERE person_2=? AND confirmed=0`, [id]);
+        const data = await conn.query(`SELECT R.*, P.ProfilePic FROM 2019Spring_Relationships R JOIN 2019Spring_Users P
+                    ON P.id = R.person_1 WHERE R.person_2=? AND R.confirmed=0`, [id]);
         if(!data) {
             return { pendingRequests: 'none' }
         }

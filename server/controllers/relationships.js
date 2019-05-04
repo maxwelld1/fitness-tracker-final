@@ -8,18 +8,18 @@ app.post("/sendRequest", (req, res, next) => {
     .then(x=>  res.send(x) )
     .catch(next)
 });
-app.get("/getPending:id", (req, res, next) => {
-    relationship.getPending(req.param.id)
+app.get("/getPending/:id", (req, res, next) => {
+    relationship.getPending(req.params.id)
     .then(x => res.send(x) )
     .catch(next)
 });
-app.get("/confirm:id", (req, res, next) => {
+app.get("/confirm/:id", (req, res, next) => {
     //console.log({body: req.body})
     relationship.confirm(req.params.id)
     .then(x=>  res.send(x) )
     .catch(next)
 });
-app.get("/delete:id", (req, res, next) => {
+app.get("/delete/:id", (req, res, next) => {
     //console.log({body: req.body})
     relationship.deleteRequest(req.params.id)
     .then(x=>  res.send(x) )

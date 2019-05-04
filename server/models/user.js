@@ -18,8 +18,9 @@ const model = {
         return data[0];
     },
     async getFriends(id){
-        const data = await conn.query(`SELECT P.* FROM 2019Spring_Users WHERE P.id in 
-            (SELECT R.person_1, R.person_2 FROM 2019Spring_Relationships WHERE (R.person_1=? OR R.person_2=?) AND R.confirmed=1`, [id, id]);
+        const data = await conn.query(`SELECT P.* FROM 2019Spring_Users P JOIN 2019Spring_Relationships R 
+                ON ((R.person_1 = P.id AND R.person_2 = ?) OR (R.person_2 = P.id AND R.person_1 = ?)) WHERE P.id != ? AND  R.confirmed = 1`, [id, id, id]);
+        console.log(data);
         if (data.length == 0) {
             throw Error('No Friends Found')
         }

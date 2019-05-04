@@ -14,6 +14,7 @@ app.get("/:id", (req, res, next) => {
     .catch(next)
 });
 app.get("/getfriends/:id", (req, res, next) => {
+    console.log(req.param.id);
     user.getFriends(req.params.id)
     .then(x=>  res.send(x) )
     .catch(next)
