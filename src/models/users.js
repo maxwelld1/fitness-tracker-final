@@ -10,8 +10,6 @@ export async function GetUsers() {
   return x;
 }
 
-export const GetFriends2 = () => api('users');
-
 export async function Register(data) {
   const x = await api('users', data);
   return x;
@@ -20,22 +18,6 @@ export async function Login(data) {
   const x = await api('users/login', data);
   Globals.user = x.user;
   Globals.token = x.token;
-  return x;
-}
-export async function SendRequest(data) {
-  const x = await api('relationships/sendRequest', data);
-  return x;
-}
-export async function GetPendingRequests() {
-  const x = await api(`relationships/getPending/${Globals.user.id}`);
-  return x;
-}
-export async function ConfirmRequest(frID) {
-  const x = await api(`relationships/confirm/${frID}`);
-  return x;
-}
-export async function DeleteRequest(frID) {
-  const x = await api(`relationships/delete/${frID}`);
   return x;
 }
 /* export async function oAuthLogin(token, fbid) {

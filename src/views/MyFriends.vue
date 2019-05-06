@@ -18,7 +18,8 @@
 
 <script>
 import { Globals } from '@/models/api';
-import { GetFriends, GetPendingRequests, ConfirmRequest, DeleteRequest } from '@/models/users';
+import { GetFriends } from '@/models/users';
+import { GetPendingRequests, ConfirmRequest, DeleteRequest } from '@/models/relationships';
 import toastr from 'toastr';
 
 export default {

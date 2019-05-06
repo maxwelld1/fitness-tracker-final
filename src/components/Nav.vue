@@ -20,6 +20,9 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/SiteUsers" active-class="active">Find Users</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/MyExercise" active-class="active">My Exercise</router-link>
+                </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
                 <router-link to="/Login" class="nav-link" active-class="active">Login</router-link>

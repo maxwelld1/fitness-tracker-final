@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import MyFriends from './views/MyFriends.vue';
 import MyExercise from './views/MyExercise.vue';
+import AddWorkout from './views/AddWorkout.vue';
 import Register from './views/Register.vue';
 import Login from './views/Login.vue';
 import SiteUsers from './views/SiteUsers.vue';
@@ -31,6 +32,11 @@ const router = new Router({
       path: '/MyExercise',
       name: 'my-exercise',
       component: MyExercise,
+    },
+    {
+      path: '/AddWorkout',
+      name: 'add-workout',
+      component: AddWorkout,
     },
     {
       path: '/Register',

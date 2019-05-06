@@ -13,7 +13,8 @@
 
 <script>
 import { Globals } from '@/models/api';
-import { GetUsers, GetFriends, SendRequest } from '@/models/users';
+import { GetUsers, GetFriends } from '@/models/users';
+import { SendRequest } from '@/models/relationships';
 import toastr from 'toastr';
 
 export default {
@@ -39,7 +40,7 @@ export default {
         this.siteUsers = (await GetUsers()).filter(siteUser => siteUser.id !== Globals.user.id);
       }
     } else {
-      this.siteUsers = (await GetUsers()).filter(siteUser => siteUser.id !== Globals.user.id);
+      this.siteUsers = await GetUsers();
     }
   },
   methods: {
