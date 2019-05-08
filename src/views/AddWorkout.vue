@@ -66,7 +66,7 @@ import toastr from 'toastr';
 
 export default {
   data: () => ({
-    data: {}
+    data: {},
   }),
   methods: {
     async submit() {
