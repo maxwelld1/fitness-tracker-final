@@ -20,7 +20,7 @@
                   <label for="Exercise">Exercise</label>
                   <!--input type="text" v-model="data.Exercise"
                     class="form-control" name="Exercise" id="Exercise" aria-describedby="helpExercise" placeholder="Exercise name"-->
-                    <v-select v-model="data.Exercise" @change="getPartial()"></v-select>
+                    <v-select v-model="data.Exercise" :options="exercises" v-on:input="getPartial"></v-select>
                   <small id="helpExercise" class="form-text text-muted">Exercise</small>
                 </div>
                 <div class="form-group">
@@ -59,6 +59,7 @@ import vSelect from 'vue-select';
 export default {
   data: () => ({
     data: {},
+    exercises: [],
   }),
   components: {
     vSelect,
@@ -77,9 +78,9 @@ export default {
     async getPartial() {
       try {
         console.log('bar');
-        return await GetPartialExercise(this.data.Exercise);
+        this.exercises = await GetPartialExercise(this.data.Exercise);
       } catch (error) {
-        return Globals.errors.push(error);
+        Globals.errors.push(error);
       }
     },
   },
