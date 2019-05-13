@@ -18,8 +18,9 @@
             <form @submit.prevent="submit">
                 <div class="form-group">
                   <label for="Exercise">Exercise</label>
-                  <input type="text" v-model="data.Exercise"
-                    class="form-control" name="Exercise" id="Exercise" aria-describedby="helpExercise" placeholder="Exercise name">
+                  <!--input type="text" v-model="data.Exercise"
+                    class="form-control" name="Exercise" id="Exercise" aria-describedby="helpExercise" placeholder="Exercise name"-->
+                    <v-select v-model="data.Exercise" @change="getPartial()"></v-select>
                   <small id="helpExercise" class="form-text text-muted">Exercise</small>
                 </div>
                 <div class="form-group">
@@ -46,28 +47,22 @@
       </div>
     </div>
     </div>
-    <!--div class="col-lg-6">
-      <div class="card border-success" v-if="newUser">
-        <div class="card-body">
-          <h4 class="card-title">Congrats! You've Registered</h4>
-          <p class="card-text">
-            {{newUser.FirstName}} {{newUser.LastName}}
-          </p>
-        </div>
-      </div>
-    </div-->
 </div>
 </template>
 
 <script>
 import { Globals } from '@/models/api';
-import { AddWorkout } from '@/models/workouts';
+import { AddWorkout, GetPartialExercise } from '@/models/workouts';
 import toastr from 'toastr';
+import vSelect from 'vue-select';
 
 export default {
   data: () => ({
     data: {},
   }),
+  components: {
+    vSelect,
+  },
   methods: {
     async submit() {
       try {
@@ -77,6 +72,14 @@ export default {
       } catch (error) {
         Globals.errors.push(error);
         toastr.error(error.message);
+      }
+    },
+    async getPartial() {
+      try {
+        console.log('bar');
+        return await GetPartialExercise(this.data.Exercise);
+      } catch (error) {
+        return Globals.errors.push(error);
       }
     },
   },

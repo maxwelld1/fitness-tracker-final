@@ -28,6 +28,14 @@ const model = {
         console.log(data);
         return data;
     },
+    async getPartial(exercise, uid) {
+        const data = await conn.query("SELECT * FROM 2019Spring_exercises WHERE workout LIKE ? AND user=?", ['%'+exercise+'%', uid]);
+        if(!data){
+            throw Error("No matching exercise names.");
+        }
+        console.log(data);
+        return data;
+    },
 };
 
 module.exports = model;
